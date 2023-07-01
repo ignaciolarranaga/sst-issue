@@ -1,4 +1,18 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+  i18n: {
+    locales: ["en", "es"],
+    defaultLocale: "en",
+  },
 
-module.exports = nextConfig
+  async rewrites() {
+    return [
+      {
+        source: "/libro/:countryCode/:slug",
+        destination: "/book/:countryCode/:slug",
+      },
+    ];
+  },
+};
+
+module.exports = nextConfig;
